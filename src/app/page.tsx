@@ -4,7 +4,7 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <ImageUploader />
+      <ImageUploader apiKey={process.env.AI_IMAGE_UPSCALER_API_KEY!} />
     </div>
   );
 };

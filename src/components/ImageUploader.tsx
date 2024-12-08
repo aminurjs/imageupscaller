@@ -4,8 +4,11 @@
 import { useState, useRef } from "react";
 import axios from "axios";
 import { saveAs } from "file-saver";
+type ApiKey = {
+  apiKey: string;
+};
 
-const DragDropFile = () => {
+const DragDropFile = ({ apiKey }: ApiKey) => {
   const [isDragging, setIsDragging] = useState(false);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -76,7 +79,7 @@ const DragDropFile = () => {
           method: "POST",
           url: "https://ai-image-upscaler1.p.rapidapi.com/v1",
           headers: {
-            "x-rapidapi-key": "3347ffe01emshbd7fc2972469139p194f22jsna45b83eb7caa",
+            "x-rapidapi-key": apiKey,
             "x-rapidapi-host": "ai-image-upscaler1.p.rapidapi.com",
             "Content-Type": "multipart/form-data",
           },
